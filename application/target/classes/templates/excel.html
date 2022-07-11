@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+<script>
+    function excelExport(event){
+        window.alert("선택된 파일을 byd로 전송하시겠습니까?");
+        var input = event.target;
+        var reader = new FileReader();
+        reader.onload = function(){
+            var fileData = reader.result;
+            var wb = XLSX.read(fileData, {type : 'binary'});
+            wb.SheetNames.forEach(function(sheetName){
+                var rowObj =XLSX.utils.sheet_to_json(wb.Sheets[sheetName]);
+                console.log(JSON.stringify(rowObj));
+                let param = {
+                    excelStringData : JSON.stringify(rowObj)
+                };
+                $.ajax({
+                    url: '/home/test',
+                    type: "POST",
+                    data: param,
+                    success: function(resultData) {
+                        dataProvider.fillJsonData(resultData, { fillMode: "set" });
+                        console.log(resultData);
+                        gridSetPaging();
+                    }
+                });
+
+            })
+        };
+        reader.readAsBinaryString(input.files[0]);
+    }
+</script>
+<body>
+안녕하세요<br>
+<input type="file" value="excel import" id="uploadButton" onchange="excelExport(event)"/>
+</body>
+</html>
