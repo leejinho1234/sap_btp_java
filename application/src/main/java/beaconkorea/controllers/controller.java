@@ -43,6 +43,15 @@ public class controller implements WebMvcConfigurer {
         mv.setViewName("excel");
         return mv;
     }
+
+    @RequestMapping("/signup")
+    public ModelAndView SignUp(){
+        ModelAndView  mv = new ModelAndView();
+        mv.setViewName("SignUp");
+        return mv;
+    }
+
+
     @PostMapping("/home/test")
     public String homeTest(TestDto param) throws IOException, ParseException {
         excelSerivce ex = new excelSerivce();
@@ -50,5 +59,9 @@ public class controller implements WebMvcConfigurer {
 
         return "excel";
     }
+
+
+
+
 
 }

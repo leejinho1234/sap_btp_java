@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: beaconkorea.HelloWorldControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 38.339 s <<< FAILURE! - in beaconkorea.HelloWorldControllerTest
-beaconkorea.HelloWorldControllerTest.test  Time elapsed: 0.956 s  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 34.829 s <<< FAILURE! - in beaconkorea.HelloWorldControllerTest
+beaconkorea.HelloWorldControllerTest.test  Time elapsed: 0.721 s  <<< FAILURE!
 java.lang.AssertionError: Status expected:<200> but was:<404>
 	at beaconkorea.HelloWorldControllerTest.lambda$test$0(HelloWorldControllerTest.java:66)
 	at beaconkorea.HelloWorldControllerTest.test(HelloWorldControllerTest.java:62)
