@@ -2,6 +2,8 @@ package beaconkorea.controllers;
 
 import beaconkorea.DTO.TestDto;
 
+import beaconkorea.DTO.UserDto;
+import beaconkorea.service.userService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,7 +53,17 @@ public class controller implements WebMvcConfigurer {
         return mv;
     }
 
+    @RequestMapping(value = "/sign/test", method = RequestMethod.POST)
+    public String addUser(@RequestParam("id") String id, @RequestParam("pw") String pw) throws Exception {
+        userService userService = new userService();
+        userService.createUser(id,pw);
+        return "SignUp";
+    }
 
+    
+    
+    
+    //엑셀파일 임포트
     @PostMapping("/home/test")
     public String homeTest(TestDto param) throws IOException, ParseException {
         excelSerivce ex = new excelSerivce();

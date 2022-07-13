@@ -11,3 +11,7 @@ spring:
     prefix : classpath:templates/
     suffix : .html
     cache : false
+
+  mybatis:
+    # resources/mapper/ 에 있는 모든 xml 파일
+    mapper-locations: mapper/*.xml
