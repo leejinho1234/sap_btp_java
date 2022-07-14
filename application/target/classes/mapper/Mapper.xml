@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="beaconkorea.DAO.userDAO" >
+
+    <select id="getAllUser" resultType="beaconkorea.DTO.UserDto">
+        SELECT * FROM sap_table
+    </select>
     <insert id="createUser" parameterType="beaconkorea.DTO.UserDto">
-        insert into sap_table(id, pw) values(#{id}, #{pw})
+        INSERT INTO sap_table VALUES (#{id}, #{pw})
     </insert>
 </mapper>

@@ -5,17 +5,20 @@ import beaconkorea.DTO.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class userService {
-
     @Autowired
-    private userDAO userDAO;
+    public userDAO userDAO;
 
-    public int createUser(String id, String pw){
-        UserDto userDto = new UserDto();
-        userDto.setId(id);
-        userDto.setPw(pw);
-        System.out.println(userDto);
-        return userDAO.createUser(userDto);
+    public List<UserDto> getAllUser(){
+        System.out.println("userDAO.getAllUser() : " + userDAO.getAllUser().toString());
+        return userDAO.getAllUser();
+    }
+
+    public void createUser(UserDto userDto){
+        userDAO.createUser(userDto);
     }
 }

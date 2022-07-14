@@ -4,6 +4,7 @@ import beaconkorea.DTO.TestDto;
 
 import beaconkorea.DTO.UserDto;
 import beaconkorea.service.userService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,26 +14,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.List;
+
 import beaconkorea.service.excelSerivce;
-
-/*
-@RestController
-@RequestMapping( "/hello" )
-public class HelloWorldController
-{
-    private static final Logger logger = LoggerFactory.getLogger(HelloWorldController.class);
-
-    @RequestMapping( method = RequestMethod.GET )
-    public ResponseEntity<HelloWorldResponse> getHello( @RequestParam( defaultValue = "world" ) final String name )
-    {
-        logger.info("I am running!");
-        return ResponseEntity.ok(new HelloWorldResponse(name));
-    }
-}
- */
 
 @Controller
 public class controller implements WebMvcConfigurer {
+
+    @Autowired
+    userService userService;
 
     @RequestMapping("/")
     public String home() {
@@ -46,6 +36,7 @@ public class controller implements WebMvcConfigurer {
         return mv;
     }
 
+    //회원가입 폼
     @RequestMapping("/signup")
     public ModelAndView SignUp(){
         ModelAndView  mv = new ModelAndView();
@@ -53,16 +44,24 @@ public class controller implements WebMvcConfigurer {
         return mv;
     }
 
-    @RequestMapping(value = "/sign/test", method = RequestMethod.POST)
-    public String addUser(@RequestParam("id") String id, @RequestParam("pw") String pw) throws Exception {
-        userService userService = new userService();
-        userService.createUser(id,pw);
+    //모든 유저 확인
+    @RequestMapping("/getAllUser")
+    public String getAllUser(){
+        List<UserDto> userDtoList = userService.getAllUser();
+        System.out.println(userDtoList);
         return "SignUp";
     }
 
-    
-    
-    
+    @RequestMapping(value = "/createUser", method = RequestMethod.POST)
+    public String createUser(@RequestParam("id") String id, @RequestParam("pw") String pw) throws Exception {
+        UserDto userDto = new UserDto();
+        userDto.setId(id);
+        userDto.setPw(pw);
+
+        userService.createUser(userDto);
+        return "SignUp";
+    }
+
     //엑셀파일 임포트
     @PostMapping("/home/test")
     public String homeTest(TestDto param) throws IOException, ParseException {
