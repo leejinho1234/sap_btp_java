@@ -24,6 +24,7 @@ public class controller implements WebMvcConfigurer {
     @Autowired
     userService userService;
 
+    //초기화면
     @RequestMapping("/")
     public String home() {
         return "excel";
@@ -57,7 +58,6 @@ public class controller implements WebMvcConfigurer {
         UserDto userDto = new UserDto();
         userDto.setId(id);
         userDto.setPw(pw);
-
         userService.createUser(userDto);
         return "SignUp";
     }
@@ -67,12 +67,6 @@ public class controller implements WebMvcConfigurer {
     public String homeTest(TestDto param) throws IOException, ParseException {
         excelSerivce ex = new excelSerivce();
         ex.excelSer(param);
-
         return "excel";
     }
-
-
-
-
-
 }

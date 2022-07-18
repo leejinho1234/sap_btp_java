@@ -27,6 +27,8 @@ public class excelSerivce {
     }
 
     public void RestAPI(List<TestDto> testDto) throws ParseException {
+        System.out.println(testDto);
+
         //Base64Encode Service 를 통한 Auth 생성
         String Username = "_WEB";
         String Password = "dlwlsgh1595A";
@@ -55,6 +57,21 @@ public class excelSerivce {
             String ObjectID = obj.getJSONObject("d").getJSONObject("results").get("ObjectID").toString();
             System.out.println("Root : " + res.getBody());
             System.out.println("Root : " + res.getStatusCodeValue());
+
+            //===========================================================================================================
+            //Item 생성
+            url = "https://my353278.sapbydesign.com/sap/byd/odata/cust/v1/zwebtest/ZWebTestItemCollection";
+
+            jsonObjectItem.put("ParentObjectID", ObjectID);
+            jsonObjectItem.put("ZItemSeq", testDto.get(i).getZItemSeq());
+            jsonObjectItem.put("ZItemDes", testDto.get(i).getZItemDes());
+
+            HttpEntity<String> entityItem = new HttpEntity<String>(jsonObjectItem.toString(), httpHeaders);
+            ResponseEntity<String> resItem = new RestTemplate().postForEntity(url, entityItem, String.class);
+
+            System.out.println("Item : " + resItem.getBody());
+            System.out.println("Item : " + resItem.getStatusCodeValue());
+            //===========================================================================================================
         }
 
     }
