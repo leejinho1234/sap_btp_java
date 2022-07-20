@@ -15,3 +15,4 @@ SAP BTP Trial URL : https://account.hanatrial.ondemand.com/trial/#/globalaccount
 4. 액션 -> SAP HANA 데이터베이스(SQL Console)
 
 * SAP HANA DB 초기 생성시 IP가 막혀있기 때문에 풀어 줘야함(SAP HANA CLOUD Central) -> Manage Configutaion
+<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white"/>
