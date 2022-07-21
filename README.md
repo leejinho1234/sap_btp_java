@@ -30,7 +30,7 @@
  - SAP Cluod SDK 에서 템플릿 다운로드
  - Cloud Foundry 공간에 배포
  
- ## Setup And Deployment 🔧
+ ## Initial Setting 🔧
  1. SAP Cluod SDK 에서 템플릿 다운로드
      - https://sap.github.io/cloud-sdk/docs/java/getting-started 참조
      - CLI 를 통한 프로젝트 생성
