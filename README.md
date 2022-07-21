@@ -25,21 +25,24 @@
 
 
 
-#SAP BTP - Spring Boot 개발 
 
-2022-07-14
-Spring Boot <-> SAP HANA DB 연결 확인
+## Overview ⭐️
+ - SAP Cluod SDK 에서 템플릿 다운로드
+ - Cloud Foundry 공간에 배포
+ 
+ ## Setup And Deployment 🔧
+ 1. SAP Cluod SDK 에서 템플릿 다운로드
+     - https://sap.github.io/cloud-sdk/docs/java/getting-started 참조
+     - CLI 를 통한 프로젝트 생성
+ ![image](https://user-images.githubusercontent.com/54428387/180221461-a903f086-44ee-4737-abde-2e38cfee5219.png)
+ 2. Cloud Foundry 공간에 배포
+    - https://developers.sap.com/tutorials/s4sdk-cloud-foundry-sample-application.html 참조
+    - 로그인
+    ![image](https://user-images.githubusercontent.com/54428387/180224180-82cbe708-1919-4221-b40a-c784bb603e8b.png)
+    - 개발 프로젝트 어셈블
+    ![image](https://user-images.githubusercontent.com/54428387/180224326-ceda895e-a693-421f-83f8-1935cbbe83a6.png)
+    - 배포
+    ![image](https://user-images.githubusercontent.com/54428387/180224733-dc562e76-87e2-46f4-a357-9fcb3a6815a5.png)
+    - SAP BTP 콕피트에서 배포 확인
+    ![image](https://user-images.githubusercontent.com/54428387/180225110-5c6045b8-e4ae-43e7-8a01-2392725b4326.png)
 
-SAP BTP Trial URL : https://account.hanatrial.ondemand.com/trial/#/globalaccount/dca99fa8-47da-424d-96ac-9840b531d613/accountModel&//detail/c983255f-260c-4e94-89c3-cc277ebf1688/?layout=TwoColumnsMidExpanded
-
-
-
-#SAP HANA DB 접속 방법
-
-1. javaTest 하위 계정 접속
-2. Cloud Foundry -> 공간 -> test 공간 클릭
-3. SAP HANA CLOUD 클릭
-4. 액션 -> SAP HANA 데이터베이스(SQL Console)
-
-* SAP HANA DB 초기 생성시 IP가 막혀있기 때문에 풀어 줘야함(SAP HANA CLOUD Central) -> Manage Configutaion
-<img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=white"/>
